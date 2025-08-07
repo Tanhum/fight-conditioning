@@ -98,3 +98,19 @@
   height: 2px;
   background: #facc15;
 }
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column; /* Stack logo and links */
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+  .nav-links {
+    flex-direction: column; /* Vertical links */
+    gap: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+  .logo-container {
+    justify-content: center;
+  }
+}
