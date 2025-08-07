@@ -143,6 +143,14 @@
   .hero-text {
     text-align: center;
   }
+  .hero-text h1 {
+    font-size: 1.8rem; /* Smaller for mobile */
+    color: #facc15; /* Ensure consistency */
+  }
+  .hero-text p {
+    font-size: 1rem; /* Slightly smaller */
+    color: #ddd;
+  }
 }
 /* Program Section */
 .program-section {
@@ -545,7 +553,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 500px; /* Adjust as needed */
+  max-height: 300px; /* Adjust as needed */
   overflow: hidden;
   border-radius: 8px;
 }
@@ -564,6 +572,10 @@
   min-width: 0;
   padding: 0 2rem;
 }
+.about-text p {
+    padding-right: 0; /* Remove excessive padding */
+    margin-bottom: 0.5rem;
+  }
 
 .about-text h2 {
   color: #facc15;
