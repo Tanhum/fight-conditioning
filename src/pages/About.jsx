@@ -15,8 +15,11 @@ const About = () => {
   const { language, translations } = useContext(LanguageContext);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
-  const sliderRef = useRef(null);
-  
+
+  const trackRef = useRef(null);
+  const slideRef = useRef(null);
+  const [slideWidth, setSlideWidth] = useState(0);
+
   const slides = [
     {
       image: photo1,
@@ -32,6 +35,19 @@ const About = () => {
     },
   ];
 
+  // Measure slide width for responsive sliding
+  useEffect(() => {
+    const updateSlideWidth = () => {
+      if (slideRef.current) {
+        setSlideWidth(slideRef.current.offsetWidth);
+      }
+    };
+    updateSlideWidth();
+    window.addEventListener("resize", updateSlideWidth);
+    return () => window.removeEventListener("resize", updateSlideWidth);
+  }, []);
+
+  // Auto-slide effect
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isHovering) {
@@ -74,12 +90,13 @@ const About = () => {
               <div 
                 className="slider-track"
                 style={{ 
-                  transform: `translateX(-${activeSlide * 100}%)`,
+                  transform: `translateX(-${activeSlide * slideWidth}px)`,
                   transition: isHovering ? 'none' : 'transform 1.5s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
+                ref={trackRef}
               >
                 {slides.map((slide, index) => (
-                  <div key={index} className="slide">
+                  <div key={index} className="slide" ref={index === 0 ? slideRef : null}>
                     <div className="image-container">
                       <img src={slide.image} alt={`Slide ${index + 1}`} />
                     </div>
