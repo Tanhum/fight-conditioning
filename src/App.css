@@ -724,6 +724,7 @@
   .about-text p {
     padding-right: 0;
     margin-bottom: 0.5rem;
+    color: rgb(255, 255, 255);
   }
   .about-image-container {
     max-height: 300px;
