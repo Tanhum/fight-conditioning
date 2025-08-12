@@ -16,10 +16,10 @@ const TrainingPlan = () => {
   };
 
   const videoLinks = [
-    "https://www.youtube.com/embed/8Z_K-UFRZTE",
-    "https://www.youtube.com/embed/8Z_K-UFRZTE",
-    "https://www.youtube.com/embed/8Z_K-UFRZTE",
-    "https://www.youtube.com/embed/8Z_K-UFRZTE",
+    " ",
+    " ",
+    " ",
+    " ",
   ];
 
   const weekTitles = [
